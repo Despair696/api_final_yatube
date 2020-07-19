@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-from autoslug import AutoSlugField
 
 
 User = get_user_model()
@@ -64,4 +63,4 @@ class Follow(models.Model):
 
 class Group(models.Model):
     title = models.CharField(max_length=200)
-    slug = AutoSlugField(populate_from='title')
+    slug = models.SlugField(unique=True, default='')
